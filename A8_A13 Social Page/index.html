@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <title>ADROP 📩</title>
+</head>
+
+<body>
+  <!-- nav bar -->
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">Love at first DROP 📩</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- 對應到 data-ts-target -->
+        <ul class="navbar-nav  me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home
+              <span class="visually-hidden">(current)</span> <!-- 查看教案新增這行，暫時不知道做什麼用 -->
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./message-box.html">Inbox</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- main page -->
+  <div class="container mt-3 text-center">
+    <!-- 必要 ｜ 必須 ｜ 加入 text-center 幫助名稱置中-->
+    <div class="row row-cols-sm-2 row-cols-md-4 row-cols-lg-6 row-cols-xl-12 g-3 justify-content-center"
+      id="data-panel">
+      <!-- 這裡不能省略第一個 row | 後面是指在不同尺寸希望作用的欄數 | g 是指欄間距 -->
+      <!-- 連帶下方需要寫上 col-sm 代表希望開始作用的尺寸 -->
+      <!-- img 原本有帶 srcset="" 此屬性在 RWD 環境下挑選不同畫質的圖片 -->
+      <!-- 以下一定要多加 item 以利畫面編排 -->
+
+      <!-- render user here-->
+      <!-- <div class="col-sm">
+        <div class="item">
+          <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="user-avatar" class="w-100"
+            data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <p><small>Hello Kitty</small></p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <!-- Paginator -->
+  <nav aria-label="Page navigation">
+    <ul class="pagination pagination-sm justify-content-center mt-3" id="paginator">
+      <li class="page-item active" aria-current="page">
+        <span class="page-link">1</span>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+    </ul>
+  </nav>
+
+  <!-- User Modal -->
+  <div class="modal fade" id="user-modal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="userModalLabel">Take a quick look!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="user-modal-body">
+          <!-- 這裡加上 align-items-center 以利左圖與右文能夠 cross-axis 置中 -->
+          <div class="row align-items-center">
+            <!-- 調整成 5:7 資料與圖的比例較為適合 -->
+            <div class="col-md-5" id="user-modal-avatar">
+              <img
+                src="https://scontent.ftpe7-4.fna.fbcdn.net/v/t1.6435-9/159715668_294987898647604_4729388615979826863_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=174925&_nc_ohc=ODkBntYdEz4AX85G4DV&tn=Efqj1ETZLqadePfT&_nc_ht=scontent.ftpe7-4.fna&oh=00_AfDO9-pCdp6B87gbfaLklcnpv0-edrAt40Zyq4rMjdlD5A&oe=6391F0C5"
+                alt="user-avatar" class="img-fluid w-100 rounded-circle">
+            </div>
+            <div class="col-md-7">
+              <p>
+              <h3 id="user-modal-name">Jay CHOU</h3>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="user-modal-region">🏠 TW</li>
+                <li class="list-group-item" id="user-modal-birthday">🎂 1979-01-18 (43)</li>
+                <li class="list-group-item" id="user-modal-email">📩 jay.chou@jvr.com</li>
+              </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="drop-message-btn" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#message-modal">Drop me a message!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- drop me a message modal -->
+
+  <div class="modal fade" id="message-modal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="messageModalLabel">New message</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Recipient:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary send-message-btn" data-bs-dismiss="modal">Send message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
