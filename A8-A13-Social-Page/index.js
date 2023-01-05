@@ -1,5 +1,6 @@
 //常數
-const BASE_URL = 'https://lighthouse-user-api.herokuapp.com'
+// API update: 20220105
+const BASE_URL = 'https://user-list.alphacamp.io'
 const INDEX_URL = BASE_URL + '/api/v1/users/'
 const dataPanel = document.querySelector('#data-panel')
 const messageModal = document.querySelector('#message-modal')
