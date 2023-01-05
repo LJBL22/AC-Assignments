@@ -1,5 +1,6 @@
-# AC-Assignments
-This repository majorly contains my works during study in term 2-2 of Alpha Camp online course.
+# ALPHA Camp Term 2-2 assignments
+
+This repository majorly contains my works during study in term 2-2 of ALPHA Camp online course.
 
 ## Contents
 - basic practice of API
